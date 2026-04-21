@@ -20,6 +20,7 @@ import BookBus from '../layout/BookBus'
 import PaymentTab from '../layout/PaymentTab/PaymentTab'
 import SeatSelection from '../layout/SeatSelection/SeatSelection'
 import TicketPage from '../layout/TicketPage/TicketPage'
+import MyBookings from '../dashboard/MyBookings'
 
 
 const Routes = () => {
@@ -33,6 +34,7 @@ const Routes = () => {
         {/* <Route exact path="/profiles" component={Profiles} />
         <Route exact path="/profile/:id" component={Profile} /> */}
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
+        <PrivateRoute exact path="/my-bookings" component={MyBookings} />
         <PrivateRoute exact path="/profile" component={Profile} />
         {/* <PrivateRoute exact path="/book/" component={BookBus} /> */}
         {/* <PrivateRoute exact path="/book/home" component={PaymentTab} /> */}

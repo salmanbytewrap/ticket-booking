@@ -37,7 +37,8 @@ const Dashboard = ({ auth: { user }, profile: { profile, loading } }) => {
                 </div> </Fragment>
         ) : (
             <Fragment><p>You don't have booked any buses.</p>
-                <Link to='/' className="btn btn-primary my-1"> Book Bus</Link> </Fragment>
+                <Link to='/booking' className="btn btn-primary my-1 mr-2"> Book Bus</Link>
+                <Link to='/my-bookings' className="btn btn-outline-light my-1"> My bookings</Link> </Fragment>
         )}
     </Fragment>
     )

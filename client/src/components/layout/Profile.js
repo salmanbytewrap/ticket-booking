@@ -1,13 +1,34 @@
-import React, { Fragment, useEffect } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { getCurrentProfile, removeBus } from '../../actions/profile'
+import { getCurrentProfile } from '../../actions/profile'
+import { getMyBookingsApi } from '../../actions/booking'
+import BookingsTable from '../bookings/BookingsTable'
+import Spinner from './Spinner'
 
+const Profile = ({ getCurrentProfile, auth: { user } }) => {
+    const [bookings, setBookings] = useState([])
+    const [loadingBookings, setLoadingBookings] = useState(true)
 
-const Profile = ({ getCurrentProfile, removeBus, auth: { user } }) => {
     useEffect(() => {
         getCurrentProfile()
     }, [getCurrentProfile])
+
+    useEffect(() => {
+        let active = true
+        ;(async () => {
+            try {
+                const data = await getMyBookingsApi()
+                if (active) setBookings(Array.isArray(data) ? data : [])
+            } catch {
+                if (active) setBookings([])
+            } finally {
+                if (active) setLoadingBookings(false)
+            }
+        })()
+        return () => { active = false }
+    }, [])
+
     return (
         <Fragment>
             <div className="profile-grid my-1">
@@ -24,39 +45,26 @@ const Profile = ({ getCurrentProfile, removeBus, auth: { user } }) => {
                     </div>
                 </div>
                 <div className="profile-exp bg-white p-2">
-                    <h2 className="text-primary">Booked  Buses</h2>
-                    <ul>
-                        {user && user.ticket.length > 0 ? (<Fragment>
-                            {user.buses.map(bus => (
-                                <li key={bus._id}>
-
-                                    <div className="container1">
-                                        <div className="card">
-                                            <div className="box">
-                                                <div className="content">
-                                                    <h2>01</h2>
-                                                    <h3>{bus.name}</h3>
-                                                    <h3>{bus.company}</h3>
-                                                    <span> <h1>Stops:- </h1> <strong> [{bus.stops}] </strong> </span>
-                                                    <span><h1>Bus Id:- </h1>{bus._id}</span>
-                                                    <button className="btn btn-danger" onClick={() => removeBus(bus._id)}>Delete Bus</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div></li>
-                            ))}
-                        </Fragment>) : (<h4>No Tickets Found.</h4>)}</ul>
+                    <h2 className="text-primary">Booked buses</h2>
+                    <p className="text-dark small mb-3">
+                        Same list as <strong>My bookings</strong> — trips saved after you complete the ticket step.
+                    </p>
+                    {loadingBookings ? (
+                        <Spinner />
+                    ) : (
+                        <BookingsTable
+                            bookings={bookings}
+                            emptyMessage="No bookings yet. Complete a booking (search → seats → payment → ticket) to see it here."
+                        />
+                    )}
                 </div>
             </div>
         </Fragment>
     )
 }
 
-
-
 Profile.propTypes = {
     getCurrentProfile: PropTypes.func.isRequired,
-    removeBus: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired
 }
 
@@ -64,4 +72,4 @@ const mapStateToProps = state => ({
     auth: state.auth
 })
 
-export default connect(mapStateToProps, { getCurrentProfile, removeBus })(Profile)
+export default connect(mapStateToProps, { getCurrentProfile })(Profile)

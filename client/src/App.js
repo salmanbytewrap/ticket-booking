@@ -1,7 +1,8 @@
 import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/layout/Navbar'
-import Landing from './components/layout/Landing'
+import Home from './components/layout/Home'
+import Booking from './components/layout/Booking'
 import './App.css';
 import Routes from './components/routing/Routes'
 import { loadUser } from './actions/auth'
@@ -27,7 +28,8 @@ const App = () => {
         <Fragment>
           <Navbar />
           <Switch>
-            <Route exact path="/" component={Landing} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/booking" component={Booking} />
             <Route component={Routes} />
           </Switch>
 

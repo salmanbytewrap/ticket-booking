@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { Link, Redirect } from 'react-router-dom'
-import Landing from './Landing'
 import SeatSelection from './SeatSelection/SeatSelection'
 import PaymentTab from './PaymentTab/PaymentTab'
 import { connect } from 'react-redux'
@@ -42,7 +41,7 @@ const BookBus = (setAlert) => {
                 </ul>
 
                 <div className="tab-content">
-                    {/* <div className="tab-pane container active mn-box" id="home"><Landing /></div> */}
+                    {/* <div className="tab-pane container active mn-box" id="home"><Booking /></div> */}
                     <div className="tab-pane container fade mn-box" id="menu1"><SeatSelection /></div>
                     <div className="tab-pane container fade mn-box" id="menu2"><PaymentTab /></div>
                 </div>

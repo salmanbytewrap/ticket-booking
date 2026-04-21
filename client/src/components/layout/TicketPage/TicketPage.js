@@ -1,26 +1,32 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import './TicketPage.css'
-import { addTicket } from '../../../actions/profile'
-export default function TicketPage({ history }) {
-    const saveData = () => {
-        let from = localStorage.getItem("start")
-        let to = localStorage.getItem("destination")
-        let nameArray = localStorage.getItem("nameData")
-        let noArray = localStorage.getItem("reservedSeats")
-        let tokenData = localStorage.getItem("selectedBusId")
-        let dat = localStorage.getItem("date")
-        const formData = { from, to, nameArray, noArray, tokenData, dat }
-        console.log(formData)
-        addTicket(formData)
-        console.log('first point')
-        // addTicket(from, to, nameArray, noArray, tokenData, dat)
-        // console.log(from, to, nameArray, noArray, tokenData, dat)
-    }
-    const getLocationData = () => {
-        let from = localStorage.getItem("start")
-        let to = localStorage.getItem("destination")
-        saveData()
+import { buildBookingPayloadFromStorage, saveBooking } from '../../../actions/booking'
 
+const TicketPage = ({ saveBooking: saveBookingAction }) => {
+    const attemptSaved = useRef(false)
+
+    useEffect(() => {
+        const payload = buildBookingPayloadFromStorage()
+        if (!payload.busId) return
+
+        const dedupeKey = `mbt_booking_${payload.busId}_${payload.travelDate || ''}_${JSON.stringify(payload.seatNumbers)}`
+        if (sessionStorage.getItem(dedupeKey)) return
+        sessionStorage.setItem(dedupeKey, '1')
+
+        if (attemptSaved.current) return
+        attemptSaved.current = true
+
+        saveBookingAction(payload).catch(() => {
+            sessionStorage.removeItem(dedupeKey)
+            attemptSaved.current = false
+        })
+    }, [saveBookingAction])
+
+    const getLocationData = () => {
+        const from = localStorage.getItem('start')
+        const to = localStorage.getItem('destination')
         return (
             <div>
                 <p><strong>From: </strong> {from}</p>
@@ -29,29 +35,37 @@ export default function TicketPage({ history }) {
         )
     }
     const getPassengerName = () => {
-        let nameArray = localStorage.getItem("nameData")
-        let names = JSON.parse(nameArray)
-        return names.map((name, idx) => {
-            return (
-                <div key={idx}>
-                    <p className="names">{name}</p>
-                </div>
-            )
-        })
+        const raw = localStorage.getItem('nameData')
+        if (!raw) return null
+        let names
+        try {
+            names = JSON.parse(raw)
+        } catch {
+            return null
+        }
+        return names.map((name, idx) => (
+            <div key={idx}>
+                <p className="names">{name}</p>
+            </div>
+        ))
     }
     const getSeatNumbers = () => {
-        let noArray = localStorage.getItem("reservedSeats")
-        let arr = JSON.parse(noArray)
-        return arr.map((element, idx) => {
-            return (
-                <div key={idx}>
-                    <p classsName="seatNo">{element}</p>
-                </div>
-            )
-        })
+        const raw = localStorage.getItem('reservedSeats')
+        if (!raw) return null
+        let arr
+        try {
+            arr = JSON.parse(raw)
+        } catch {
+            return null
+        }
+        return arr.map((element, idx) => (
+            <div key={idx}>
+                <p className="seatNo">{element}</p>
+            </div>
+        ))
     }
     const getIdNumber = () => {
-        let tokenData = localStorage.getItem("selectedBusId")
+        const tokenData = localStorage.getItem('selectedBusId')
         return (
             <p className="idData">
                 {tokenData}
@@ -59,7 +73,7 @@ export default function TicketPage({ history }) {
         )
     }
     const getDateValue = () => {
-        let dat = localStorage.getItem("date")
+        const dat = localStorage.getItem('date')
         return <p><strong> On: </strong>{dat}, 10 AM (Hourly commute)</p>
     }
     const printTicket = () => {
@@ -98,7 +112,7 @@ export default function TicketPage({ history }) {
                     <footer className="ticket__footer">
                         <p>Transaction-ID</p>
                         {getIdNumber()}
-                        <button className="btn btn-primary" onClick={printTicket}> Print </button>
+                        <button type="button" className="btn btn-primary" onClick={printTicket}> Print </button>
                     </footer>
                 </article>
             </div>
@@ -107,3 +121,9 @@ export default function TicketPage({ history }) {
 
     )
 }
+
+TicketPage.propTypes = {
+    saveBooking: PropTypes.func.isRequired
+}
+
+export default connect(null, { saveBooking })(TicketPage)

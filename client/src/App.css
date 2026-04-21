@@ -333,6 +333,18 @@ button {
     background: var(--light-color);
 }
 
+/* My Bookings — override global .table th; match navbar / primary theme */
+.table.my-bookings-table > thead > tr > th {
+    background: linear-gradient(to right top, #1d127e, #274080);
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    border-color: rgba(23, 162, 184, 0.45);
+    white-space: nowrap;
+}
+
 
 /* Navbar */
 
@@ -1173,3 +1185,356 @@ input.form-submit {
 
 
 /* } */
+
+/* ---------- Home page (MMT-style cards + footer) ---------- */
+
+.home-page {
+    padding-bottom: 0;
+}
+
+.home-hero .lead {
+    margin-left: 0;
+    max-width: 42rem;
+}
+
+.home-section-title {
+    color: #1a1a2e;
+    font-weight: 700;
+    font-size: 1.35rem;
+    margin-bottom: 0.25rem;
+}
+
+.home-section-sub {
+    color: #5c5c5c;
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+}
+
+.home-offers-strip {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.97) 0%, rgba(248, 249, 252, 0.98) 100%);
+    border-radius: 12px;
+    padding: 1.75rem 1.25rem 2rem;
+    margin: 0 auto 2rem;
+    max-width: 1200px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.home-offer-card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 100%;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: #fff;
+}
+
+.home-offer-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.home-offer-card .card-img-top {
+    height: 120px;
+    object-fit: cover;
+    border: none;
+}
+
+.home-offer-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #fff;
+    color: #e23744;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.home-offer-gradient {
+    height: 120px;
+    position: relative;
+}
+
+.home-offer-gradient.g1 {
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ffc837 100%);
+}
+
+.home-offer-gradient.g2 {
+    background: linear-gradient(135deg, #0077b6 0%, #00b4d8 100%);
+}
+
+.home-offer-gradient.g3 {
+    background: linear-gradient(135deg, #5a189a 0%, #9d4edd 100%);
+}
+
+.home-offer-gradient.g4 {
+    background: linear-gradient(135deg, #0d9488 0%, #2dd4bf 100%);
+}
+
+.home-offer-card .card-body {
+    padding: 1rem 1rem 1.15rem;
+}
+
+.home-offer-card .card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 0.35rem;
+}
+
+.home-offer-card .card-text {
+    font-size: 0.82rem;
+    color: #666;
+    line-height: 1.45;
+    margin-bottom: 0.75rem;
+}
+
+.home-offer-card .btn-book {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.35rem 0.85rem;
+    border-radius: 6px;
+}
+
+.home-features {
+    max-width: 1200px;
+    margin: 0 auto 2.5rem;
+}
+
+.home-feature-tile {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    padding: 1.25rem 1rem;
+    text-align: center;
+    height: 100%;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.home-feature-tile i {
+    font-size: 1.75rem;
+    color: var(--primary-color);
+    margin-bottom: 0.65rem;
+}
+
+.home-feature-tile h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 0.35rem;
+}
+
+.home-feature-tile p {
+    font-size: 0.8rem;
+    color: #555;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.home-cta-strip {
+    text-align: center;
+    margin: 1rem 0 2rem;
+}
+
+.home-footer {
+    background: linear-gradient(180deg, #1e3a5f 0%, #0f2744 100%);
+    color: #e8eef5;
+    padding: 2.5rem 1.5rem 1.75rem;
+    margin-top: 2rem;
+}
+
+.home-footer h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.home-footer h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #b8d4f0;
+    margin-bottom: 0.65rem;
+    margin-top: 1.25rem;
+}
+
+.home-footer h3:first-of-type {
+    margin-top: 0;
+}
+
+.home-footer p,
+.home-footer li {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: #c5d5e6;
+}
+
+.home-footer ul {
+    padding-left: 0;
+}
+
+.home-footer ul li {
+    position: relative;
+    padding-left: 1.1rem;
+    margin-bottom: 0.4rem;
+    list-style: none;
+}
+
+.home-footer ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #4ade80;
+    font-weight: bold;
+    font-size: 0.75rem;
+}
+
+.home-footer a {
+    color: #7dd3fc;
+}
+
+.home-footer a:hover {
+    color: #fff;
+}
+
+.home-footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    margin-top: 2rem;
+    padding-top: 1.25rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #8ba3bc;
+}
+
+/* ---------- Booking page (two-column layout) ---------- */
+
+.booking-page .landing-inner.booking-hero {
+    width: auto;
+    max-width: min(100%, 1180px);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(1rem, 4vw, 2rem);
+    padding-right: clamp(1rem, 4vw, 2rem);
+    height: auto;
+    min-height: auto;
+}
+
+.booking-page .booking-hero-title {
+    white-space: nowrap;
+    font-size: clamp(1.1rem, 3.2vw, 3rem);
+}
+
+.booking-page .booking-hero-lead {
+    margin-left: 0;
+    max-width: 48rem;
+    font-size: 1.1rem;
+    line-height: 1.45;
+}
+
+.booking-body {
+    margin-top: 1.5rem;
+    max-width: 1320px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.booking-search-panel {
+    width: 100%;
+    border: 4px solid rgba(249, 251, 251, 0.95);
+    border-radius: 12px;
+    background-image: linear-gradient(to right, #ff0101a6 0%, #2e00d694 100%);
+    padding: 1.25rem 1.35rem 1.5rem;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
+}
+
+.booking-panel-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.booking-search-panel .booking-input {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 0;
+}
+
+.booking-search-panel .form-label {
+    opacity: 0.95;
+}
+
+.booking-new-user a {
+    text-decoration: underline;
+}
+
+.booking-aside .booking-info-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+    background: rgba(255, 255, 255, 0.97);
+}
+
+.booking-card-head {
+    background: linear-gradient(90deg, #0d6efd 0%, #6610f2 100%);
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 10px 10px 0 0;
+}
+
+.booking-sample-table thead th {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: #555;
+    border-bottom-width: 2px;
+}
+
+.booking-sample-table tbody td {
+    font-size: 0.88rem;
+    vertical-align: middle;
+}
+
+.booking-steps li {
+    margin-bottom: 0.35rem;
+}
+
+.booking-results-wrap {
+    margin-top: 1rem;
+    padding-bottom: 2rem;
+    max-width: 1320px;
+    margin-left: auto;
+    margin-right: auto;
+    scroll-margin-top: 5.5rem;
+}
+
+.booking-tip {
+    font-size: 0.88rem;
+}
+
+@media (max-width: 767px) {
+    .home-offers-strip {
+        padding: 1.25rem 0.75rem;
+    }
+
+    .large {
+        font-size: 2rem;
+    }
+
+    .booking-page .booking-hero-lead {
+        font-size: 0.95rem;
+    }
+
+    .booking-page .booking-hero-title {
+        white-space: normal;
+        font-size: 1.35rem;
+        line-height: 1.25;
+    }
+}
