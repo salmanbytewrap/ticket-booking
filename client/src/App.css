@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #17a2b8;
+    --primary-color: #d84e55;
     --dark-color: #343a40;
     --light-color: #f4f4f4;
     --danger-color: #dc3545;
@@ -13,7 +13,7 @@
 }
 
 body {
-    background: linear-gradient(to right, rgba(62, 32, 233, 0.32), rgba(62, 32, 233, 0.32)), url(https://assetsw.bus.com/content/uploads/2020/02/14170850/Charter-Bus-Rentals-Photo.jpg);
+    background: linear-gradient(to right, rgba(216, 78, 85, 0.24), rgba(255, 255, 255, 0.68)), url('./bus1.jpg');
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
@@ -335,7 +335,7 @@ button {
 
 /* My Bookings — override global .table th; match navbar / primary theme */
 .table.my-bookings-table > thead > tr > th {
-    background: linear-gradient(to right top, #1d127e, #274080);
+    background: linear-gradient(to right, #b9373f, #d84e55);
     color: #fff;
     font-weight: 600;
     font-size: 0.85rem;
@@ -351,7 +351,7 @@ button {
 .navbar {
     display: flex;
     /* background-image: linear-gradient(to right, #46b6f6 0%, rgba(41, 4, 253, 0.401) 100%); */
-    background-image: linear-gradient(to right top, #1d127e, #6cc3fd, #1d127e);
+    background-image: linear-gradient(to right, #b9373f, #d84e55);
     justify-content: space-between;
     align-items: center;
     padding: 0.7rem 2rem;
@@ -375,8 +375,8 @@ button {
 }
 
 .navbar a:hover {
-    background: linear-gradient(to right top, #6cc3fd, #1d127e, #6cc3fd);
-    color: rgb(56, 216, 56);
+    background: rgba(255, 255, 255, 0.16);
+    color: #fff;
     /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
     /* font-size: 130%; */
 }
@@ -390,7 +390,7 @@ button {
 
 .landing {
     position: relative;
-    background: url(https://assetsw.bus.com/content/uploads/2020/02/14170850/Charter-Bus-Rentals-Photo.jpg) no-repeat center/cover;
+    background: url('./bus1.jpg') no-repeat center/cover;
     height: 100vh;
 }
 
@@ -403,7 +403,7 @@ button {
     margin-left: 18%;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(to bottom, rgba(41, 4, 253, 0.157), rgba(255, 255, 255, 0.178))
+    background: linear-gradient(to bottom, rgba(216, 78, 85, 0.28), rgba(255, 255, 255, 0.22))
 }
 
 
@@ -650,7 +650,7 @@ button {
     width: 100%;
     padding-top: 1%;
     color: white;
-    background: linear-gradient(to right, rgb(62, 32, 233), rgba(250, 64, 64, 0.5)), url(https://assetsw.bus.com/content/uploads/2020/02/14170850/Charter-Bus-Rentals-Photo.jpg);
+    background: linear-gradient(to right, rgba(185, 55, 63, 0.9), rgba(216, 78, 85, 0.66)), url('./bus1.jpg');
     background-size: cover;
 }
 
@@ -665,7 +665,7 @@ button {
 }
 
 .message {
-    background-image: linear-gradient(to top, #ff0000af 0%, #000cb4c0 100%);
+    background-image: linear-gradient(to top, #d84e55 0%, #a72f37 100%);
 }
 
 .myicon {
@@ -679,7 +679,7 @@ button {
     height: 27%;
     width: 25%;
     border: 4px solid #f9fbfb;
-    background-image: linear-gradient(to right, #ff0101a6 0%, #2e00d694 100%);
+    background-image: linear-gradient(to right, rgba(216, 78, 85, 0.92) 0%, rgba(185, 55, 63, 0.92) 100%);
 }
 
 .dropdown:hover>.dropdown-menu {
@@ -821,7 +821,7 @@ p.lead1 {
 }
 
 .right-divider {
-    background: rgba(103, 58, 183, 0.7);
+    background: rgba(216, 78, 85, 0.78);
     padding-top: 30px;
 }
 
@@ -1027,12 +1027,12 @@ input.form-submit {
 }
 
 .sub-btn {
-    background: rgba(103, 58, 183);
-    border-color: rgba(103, 58, 183);
+    background: #d84e55;
+    border-color: #d84e55;
 }
 
 .sub-btn:hover {
-    background: #07315B;
+    background: #b9373f;
 }
 
 .female-radio {
@@ -1265,11 +1265,11 @@ input.form-submit {
 }
 
 .home-offer-gradient.g2 {
-    background: linear-gradient(135deg, #0077b6 0%, #00b4d8 100%);
+    background: linear-gradient(135deg, #d84e55 0%, #f07f5f 100%);
 }
 
 .home-offer-gradient.g3 {
-    background: linear-gradient(135deg, #5a189a 0%, #9d4edd 100%);
+    background: linear-gradient(135deg, #a72f37 0%, #d84e55 100%);
 }
 
 .home-offer-gradient.g4 {
@@ -1304,6 +1304,14 @@ input.form-submit {
 .home-features {
     max-width: 1200px;
     margin: 0 auto 2.5rem;
+}
+
+.home-features .home-section-title {
+    color: #1f2937;
+}
+
+.home-features .home-section-sub {
+    color: #4b5563;
 }
 
 .home-feature-tile {
@@ -1447,7 +1455,7 @@ input.form-submit {
     width: 100%;
     border: 4px solid rgba(249, 251, 251, 0.95);
     border-radius: 12px;
-    background-image: linear-gradient(to right, #ff0101a6 0%, #2e00d694 100%);
+    background-image: linear-gradient(to right, rgba(216, 78, 85, 0.95) 0%, rgba(185, 55, 63, 0.95) 100%);
     padding: 1.25rem 1.35rem 1.5rem;
     box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
 }
@@ -1482,7 +1490,7 @@ input.form-submit {
 }
 
 .booking-card-head {
-    background: linear-gradient(90deg, #0d6efd 0%, #6610f2 100%);
+    background: linear-gradient(90deg, #b9373f 0%, #d84e55 100%);
     color: #fff;
     font-weight: 600;
     font-size: 0.95rem;

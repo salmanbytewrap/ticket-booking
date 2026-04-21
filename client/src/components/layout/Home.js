@@ -101,10 +101,10 @@ const Home = () => {
                 </section>
 
                 <section className="home-features" aria-labelledby="home-features-heading">
-                    <h2 id="home-features-heading" className="home-section-title text-white text-center">
+                    <h2 id="home-features-heading" className="home-section-title text-center">
                         Why travellers choose us
                     </h2>
-                    <p className="home-section-sub text-center" style={{ color: 'rgba(255,255,255,0.88)' }}>
+                    <p className="home-section-sub text-center">
                         Everything you expect from a modern booking experience — in one place.
                     </p>
                     <div className="row g-3">

@@ -14,6 +14,7 @@ app.use('/api/book', require('./routers/api/users'))
 app.use('/api/auth', require('./routers/api/auth'))
 app.use('/api/search', require('./routers/api/searchBus'))
 app.use('/api/bookings', require('./routers/api/bookings'))
+app.use('/docs', express.static(path.join(__dirname, 'docs')))
 
 
 if (process.env.NODE_ENV === 'production') {

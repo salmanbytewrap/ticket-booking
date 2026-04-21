@@ -68,6 +68,16 @@ This project also demonstrates:
 ---
 
 
+## Project documentation (technical manual)
+
+Full documentation (architecture, **database table schemas**, **REST API**, **workflows** with Mermaid diagrams, user manual, screenshot guide, and report templates) lives in the **`docs/`** folder.
+
+- Start with **`docs/00_README_FIRST.md`** and **`docs/DOCUMENTATION_INDEX.md`**.
+- To build a **single Word file** (`.docx`), install [Pandoc](https://pandoc.org) and run: `docs/scripts/merge-to-docx.sh`
+- For college submissions requiring **many pages**, add full-page screenshots under **`docs/screenshots/`** (see `docs/appendices/C_screenshot_capture_guide.md`) and use **`docs/VOLUME_II_report_templates.md`** for traceability/test tables.
+
+---
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
