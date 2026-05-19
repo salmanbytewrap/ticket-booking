@@ -1,4 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://salman18693:salman@1511@ticket-booking.lhmlasl.mongodb.net/bus-booking",
+    "mongoURI": "mongodb://127.0.0.1:27017/bus-booking",
     "jwtSecret": "mysecrettoken"
 }
